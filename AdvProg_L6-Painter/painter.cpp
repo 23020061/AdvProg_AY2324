@@ -24,8 +24,8 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     double random = (angle / 180) * 3.1415;
-    this->x += cos(rad) * numPixel;
-    this->y -= sin(rad) * numPixel;
+    this->x += cos(random) * numPixel;
+    this->y -= sin(random) * numPixel;
 }
 
 
