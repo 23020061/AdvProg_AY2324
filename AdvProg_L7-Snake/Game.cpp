@@ -51,30 +51,19 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
-	if(getCellType(pos) == CELL_OFF_BOARD)
+    CellType current = getCellType(pos);
+    if(current == CELL_OFF_BOARD || current == CELL_SNAKE)
     {
         status = GAME_OVER;
         return;
     }
-    vector<Position> PosSnake = getSnakePositions();
-    for(auto &Pos : PosSnake)
-    {
-        if(Pos == pos)
-        {
-            status = GAME_OVER;
-            return;
-        }
-    }
-    if(pos == getCherryPosition())
+    if(pos == CELL_CHERRY)
     {
         ++score;
         snake.eatCherry();
         addCherry();
     }
-    else
-    {
-        setCellType(pos,CELL_SNAKE);
-    }
+
 }
 
 
